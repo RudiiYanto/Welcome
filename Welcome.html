@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HoshinPlay Final Banner</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            overflow: hidden;
+            background: #0A0A0F;
+        }
+        
+        .banner-container {
+            position: relative;
+            width: 800px;
+            height: 300px;
+            background: linear-gradient(135deg, #0A0A0F 0%, #12121E 50%, #0A0A0F 100%);
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid rgba(76, 175, 80, 0.3);
+            box-shadow: 
+                0 0 40px rgba(76, 175, 80, 0.2),
+                inset 0 1px 0 rgba(76, 175, 80, 0.1);
+        }
+        
+        .glass-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(18, 18, 30, 0.4);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+        }
+        
+        .stars {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: transparent;
+            z-index: 1;
+        }
+        
+        .star {
+            position: absolute;
+            border-radius: 50%;
+            animation: twinkle 3s infinite alternate;
+        }
+        
+        .star.emerald {
+            background: #4CAF50;
+            box-shadow: 0 0 8px rgba(76, 175, 80, 0.8);
+        }
+        
+        .star.cyan {
+            background: #00BCD4;
+            box-shadow: 0 0 6px rgba(0, 188, 212, 0.8);
+        }
+        
+        .star.violet {
+            background: #8B5CF6;
+            box-shadow: 0 0 4px rgba(139, 92, 246, 0.8);
+        }
+        
+        .star.white {
+            background: #F1F5F9;
+            box-shadow: 0 0 3px rgba(241, 245, 249, 0.6);
+        }
+        
+        .star.small { width: 1px; height: 1px; }
+        .star.medium { width: 2px; height: 2px; }
+        .star.large { width: 3px; height: 3px; }
+        
+        @keyframes twinkle {
+            0% { opacity: 0.4; transform: scale(0.8); }
+            100% { opacity: 1; transform: scale(1.2); }
+        }
+        
+        /* Simple HP Logo */
+        .hp-logo {
+            position: absolute;
+            right: 50px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 70px;
+            height: 70px;
+            z-index: 15;
+            animation: logoFloat 4s ease-in-out infinite;
+        }
+        
+        .hp-logo-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, #4CAF50, #00BCD4);
+            border-radius: 16px;
+            padding: 2px;
+            animation: logoGlow 3s ease-in-out infinite alternate;
+        }
+        
+        .hp-logo-inner {
+            width: 100%;
+            height: 100%;
+            background: #12121E;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        
+        .hp-text {
+            font-family: 'Orbitron', monospace;
+            font-size: 24px;
+            font-weight: 900;
+            color: #F1F5F9;
+            text-shadow: 0 0 10px rgba(76, 175, 80, 0.8);
+        }
+        
+        @keyframes logoFloat {
+            0%, 100% { transform: translateY(-50%) scale(1); }
+            50% { transform: translateY(-55%) scale(1.05); }
+        }
+        
+        @keyframes logoGlow {
+            0% { 
+                box-shadow: 0 0 15px rgba(76, 175, 80, 0.4);
+            }
+            100% { 
+                box-shadow: 0 0 25px rgba(76, 175, 80, 0.7),
+                           0 0 35px rgba(0, 188, 212, 0.4);
+            }
+        }
+        
+        .content {
+            position: relative;
+            z-index: 10;
+            padding: 30px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .logo-main {
+            font-family: 'Orbitron', monospace;
+            font-size: 36px;
+            font-weight: 900;
+            margin-bottom: 4px;
+            letter-spacing: 1.5px;
+            line-height: 1;
+        }
+        
+        .hoshin-part {
+            color: #4CAF50;
+            text-shadow: 
+                0 0 20px rgba(76, 175, 80, 0.8),
+                0 0 40px rgba(76, 175, 80, 0.4);
+        }
+        
+        .play-part {
+            color: #00BCD4;
+            text-shadow: 
+                0 0 20px rgba(0, 188, 212, 0.8),
+                0 0 40px rgba(0, 188, 212, 0.4);
+        }
+        
+        .subtitle-section {
+            margin-bottom: 12px;
+        }
+        
+        .subtitle-line {
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            font-weight: 500;
+            color: #94A3B8;
+            letter-spacing: 0.5px;
+            line-height: 1.3;
+        }
+        
+        .subtitle-line:first-child {
+            margin-bottom: 1px;
+        }
+        
+        .welcome-text {
+            font-family: 'Inter', sans-serif;
+            font-size: 20px;
+            font-weight: 600;
+            color: #F1F5F9;
+            margin-bottom: 8px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .server-info {
+            font-family: 'Inter', sans-serif;
+            font-size: 11px;
+            font-weight: 400;
+            letter-spacing: 0.3px;
+            line-height: 1.5;
+        }
+        
+        .rpg-line {
+            color: #4CAF50;
+            text-shadow: 0 0 8px rgba(76, 175, 80, 0.5);
+            margin-bottom: 2px;
+        }
+        
+        .smp-line {
+            color: #8B5CF6;
+            text-shadow: 0 0 8px rgba(139, 92, 246, 0.5);
+        }
+        
+        .grid-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                linear-gradient(rgba(76, 175, 80, 0.06) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(76, 175, 80, 0.06) 1px, transparent 1px);
+            background-size: 50px 50px;
+            opacity: 0.5;
+            animation: gridFlow 15s linear infinite;
+            z-index: 0;
+        }
+        
+        @keyframes gridFlow {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 50px); }
+        }
+        
+        .particle-stream {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            border-radius: 50%;
+            animation: particleStream 8s infinite linear;
+            pointer-events: none;
+        }
+        
+        .particle-stream.emerald {
+            background: #4CAF50;
+            box-shadow: 0 0 6px rgba(76, 175, 80, 0.8);
+        }
+        
+        .particle-stream.cyan {
+            background: #00BCD4;
+            box-shadow: 0 0 6px rgba(0, 188, 212, 0.8);
+        }
+        
+        .particle-stream.violet {
+            background: #8B5CF6;
+            box-shadow: 0 0 6px rgba(139, 92, 246, 0.8);
+        }
+        
+        @keyframes particleStream {
+            0% {
+                transform: translateY(120vh) translateX(-30px);
+                opacity: 0;
+            }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% {
+                transform: translateY(-60px) translateX(30px);
+                opacity: 0;
+            }
+        }
+        
+        /* Responsive */
+        @media (max-width: 900px) {
+            .banner-container {
+                width: 100%;
+                max-width: 600px;
+                height: 250px;
+            }
+            
+            .logo-main { font-size: 28px; }
+            .welcome-text { font-size: 18px; }
+            .hp-logo { width: 55px; height: 55px; right: 30px; }
+            .hp-text { font-size: 18px; }
+            .server-info { font-size: 10px; }
+            .subtitle-line { font-size: 12px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="banner-container">
+        <div class="glass-overlay"></div>
+        <div class="grid-pattern"></div>
+        
+        <!-- Star field -->
+        <div class="stars" id="starfield"></div>
+        
+        <!-- Particle streams -->
+        <div id="particles"></div>
+        
+        <!-- Simple HP Logo -->
+        <div class="hp-logo">
+            <div class="hp-logo-bg">
+                <div class="hp-logo-inner">
+                    <div class="hp-text">HP</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Main content -->
+        <div class="content">
+            <div class="logo-main">
+                <span class="hoshin-part">HOSHIN</span><span class="play-part">PLAY</span>
+            </div>
+            <div class="subtitle-section">
+                <div class="subtitle-line">Hoshinplay RPG Survival Experience</div>
+                <div class="subtitle-line">Hoshinplay SMP Survival Experience</div>
+            </div>
+            <div class="welcome-text">Welcome to the Adventure</div>
+            <div class="server-info">
+                <div class="rpg-line">Hoshinplay RPG - Minecraft Java ﹒v1.21.11.x ﹒Online Now</div>
+                <div class="smp-line">Hoshinplay SMP - Minecraft Java ﹒v1.21.x ﹒Coming Soon</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Generate branded stars
+        function createStars() {
+            const starfield = document.getElementById('starfield');
+            const starCount = 60;
+            const colors = ['emerald', 'cyan', 'violet', 'white'];
+            const colorWeights = [0.35, 0.25, 0.2, 0.2];
+            
+            for (let i = 0; i < starCount; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                
+                let colorChoice = Math.random();
+                let selectedColor = 'white';
+                let cumulative = 0;
+                
+                for (let j = 0; j < colors.length; j++) {
+                    cumulative += colorWeights[j];
+                    if (colorChoice <= cumulative) {
+                        selectedColor = colors[j];
+                        break;
+                    }
+                }
+                
+                star.classList.add(selectedColor);
+                
+                const sizes = ['small', 'small', 'medium', 'large'];
+                star.classList.add(sizes[Math.floor(Math.random() * sizes.length)]);
+                
+                star.style.left = Math.random() * 100 + '%';
+                star.style.top = Math.random() * 100 + '%';
+                star.style.animationDelay = Math.random() * 3 + 's';
+                
+                starfield.appendChild(star);
+            }
+        }
+        
+        // Create particle streams
+        function createParticleStreams() {
+            const container = document.getElementById('particles');
+            const colors = ['emerald', 'cyan', 'violet'];
+            
+            setInterval(() => {
+                if (container.children.length < 5) {
+                    const particle = document.createElement('div');
+                    particle.className = 'particle-stream';
+                    
+                    const color = colors[Math.floor(Math.random() * colors.length)];
+                    particle.classList.add(color);
+                    
+                    particle.style.left = Math.random() * 100 + '%';
+                    particle.style.animationDuration = (Math.random() * 3 + 6) + 's';
+                    
+                    container.appendChild(particle);
+                    
+                    setTimeout(() => {
+                        if (particle.parentNode) {
+                            particle.parentNode.removeChild(particle);
+                        }
+                    }, 9000);
+                }
+            }, 1500);
+        }
+        
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            createStars();
+            createParticleStreams();
+            
+            // Interactive hover for HP logo
+            const logo = document.querySelector('.hp-logo');
+            logo.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-50%) scale(1.1)';
+                this.style.transition = 'transform 0.3s ease';
+            });
+            
+            logo.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(-50%) scale(1)';
+            });
+        });
+    </script>
+</body>
+</html>
